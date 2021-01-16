@@ -6,12 +6,18 @@ import aiohttp
 
 class Player():
 
+    """
     def create(username):
         self = Player()
         self.username= username
         self.uuid = None
         self.skinURI = None
         return self
+    """
+    def __init__(self, username):
+        self.username= username
+        self.uuid = None
+        self.skinURI = None
 
     async def get_uuid(self):
         if self.uuid == None: #Caching

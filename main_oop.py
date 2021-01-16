@@ -18,7 +18,7 @@ args=parser.parse_args()
 
 async def main():
     if args.Username != None:
-            myPlayer = Player.Player.create(args.Username)
+            myPlayer = Player.Player(args.Username)
             if args.uuid:
                 print(await myPlayer.get_uuid())
                 return
