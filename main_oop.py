@@ -5,7 +5,7 @@ import Player
 from argparse import ArgumentParser
 
 # Initialize argsparser
-parser = ArgumentParser(description="Leverages Mojangs API -- Will execute only switch (in order of appearance)")
+parser = ArgumentParser(description="Leverages Mojangs API -- Will execute only one (except for '--decode' alongside with '--session') switch (in order of appearance)")
 parser.add_argument("Username", help="Minecraft username")
 parser.add_argument("--uuid", action="store_true", help="Prints uuid and exits")
 parser.add_argument("--history", action="store_true", help="See account name history")
@@ -23,7 +23,7 @@ async def main():
                 print(await myPlayer.get_uuid())
                 return
             if args.session:
-                print(await myPlayer.get_profile())
+                print(await myPlayer.get_profile(args.decode))
                 return
             if args.skin:
                 await myPlayer.download_skin()
